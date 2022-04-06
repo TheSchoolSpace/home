@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<title>Google Testing</title>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+	<meta name="google-signin-client_id" content="26895362518-f3589jp9mt7sgc771ov3158o9tgtb7o6.apps.googleusercontent.com">
+  </head>
+  <body style="background-color: #E1E1E1; color: #434343">
+	<div class="g-signin2" data-onsuccess="onSignIn"></div>
+	<a href="#" onclick="signOut();">Sign out</a>
+	<p>this should show your pfp after you log in</p>
+	<img id="icon_here">
+<script>
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+	var data = "";
+	var icon_elem = document.getElementById("icon_here");
+	icon_elem.src = data;
+  }
+</script>
+  </body>
+  <script>
+	function onSignIn(googleUser) {
+		  var profile = googleUser.getBasicProfile();
+		  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+		  console.log('Name: ' + profile.getName());
+		  console.log('Image URL: ' + profile.getImageUrl());
+		  userImage = profile.getImageUrl();
+		  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+		  
+		  var data = profile.getImageUrl();
+			var icon_elem = document.getElementById("icon_here");
+			icon_elem.src = data;
+	}
+	document.addEventListener('contextmenu', function(e){
+		alert("This function is currently disabled");
+		e.preventDefault();
+	});
+
+document.onkeydown = function(e) {
+  if(event.keyCode == 123) {
+     return false;
+  }
+  if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+     return false;
+  }
+  if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+     return false;
+  }
+  if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+     return false;
+  }
+  if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+     return false;
+  }
+    if(e.ctrlKey && e.keyCode == 'S'.charCodeAt(0)) {
+     return false;
+  }
+} 	
+</script>
+</html>

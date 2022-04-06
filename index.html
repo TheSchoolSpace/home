@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+	<style>
+	
+		[data-component="slideshow"] .slide {
+			display: none;
+		  text-align: center;
+		}
+
+		[data-component="slideshow"] .slide.active {
+			display: block;
+		}
+
+		.introTitle{
+			font-family: Inter;
+			font-size: 48px;
+			font-weight: 400;
+			line-height: 58px;
+			text-align: center;
+			top: 500px;
+			left: center;
+		}
+		.subtitle{
+			left: 50%;	
+			top: 35%;
+			font-family: Inter;
+			font-size: 24px;
+			font-weight: 400;
+			line-height: 58px;
+			text-align: center;
+		}
+		.rectangle {
+			position: absolute;
+		    left: 0px;
+		    top: 0px;
+		    width: 100%;
+		    height: 64px;
+		    background: #606060;
+		    background-blend-mode: normal;
+			opacity: .4;
+		}
+		.label {
+			position: absolute;
+		    left: 12px;
+		    top: 12px;
+		    width: 42px;
+		    height: 42px;
+		    font-family: Inter;
+		    font-size: 17px;
+		    font-weight: 700;
+		    line-height: 20px;
+		    text-align: center;
+		    letter-spacing: -0.3px;
+		    opacity: 0;
+		}		
+		.gear{
+			position: absolute;
+		    left: 15px;
+		    top: 15px;
+		    width: 36px;
+		    height: 36px;
+		}
+		.circle {
+			position: absolute;
+			left: 14px;
+			width: 36px;
+			height:36px;
+			border-color: #3E3837;
+		    -webkit-border-radius: 18px;
+		    -moz-border-radius: 18px;
+		    border-radius: 36px;  
+		}
+		.button{	
+			position: absolute;
+			left: 76.5%;	
+			top: 41.5%;
+			color: #434343;
+			border: none;
+			font-family: Inter;
+			text-align: center;
+			padding: 10px 20px;
+			border-radius: 5px;
+			width: 150px;
+		}
+		.inProgress{
+			position: absolute;
+			left: 72%;	
+			top: 36.2%;
+			text-align: center;
+			font-family: Inter;
+		    font-size: 25px;
+		}
+	</style>
+	
+    <head>
+        <title>The School Space</title>
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    </head>
+	
+    <body style="background-color: #E1E1E1; color: #434343">
+        <h1 class = "introTitle"><br><br>Welcome to The School Space!</h1>
+		<p class = "subtitle" style = "top: 39%;">While you wait for development, enjoy these bananas!</p>
+		
+		<div class = "rectangle"></div>
+		
+		<div class = "inProgress" style = "top: 33.8%;">In Progress (Click to view):</div>
+		<button class="button" onclick=" window.open('google.html')" style = "top: 41%;">Google API Testing</button>
+		<button class = "button" onclick=" window.open('calendar.html')" style = "top: 47%;">Calendar Testing</button>
+		<button class = "button" onclick=" window.open('info.html')" style = "top: 53%;">Website Info</button>
+		<button class = "button" onclick=" window.open('to-do.html')" style = "top: 59%;">To-dos</button>
+	<!-- Color buttons:                                                           -->	
+		<button onclick = "changeColor('#D66A63')" class = "circle" style="background-color: #D66A63; top: 80px;"></button>
+		<button onclick = "changeColor('#E88C78')" class = "circle" style="background-color: #E88C78; top: 130px;"></button>
+		<button onclick = "changeColor('#EDD77E')" class = "circle" style="background-color: #EDD77E; top: 180px;"></button>
+		<button onclick = "changeColor('#BDD7BC')" class = "circle" style="background-color: #BDD7BC; top: 230px;"></button>
+		<button onclick = "changeColor('#90BEF2')" class = "circle" style="background-color: #90BEF2; top: 280px;"></button>
+		<button onclick = "changeColor('#CAA4E2')" class = "circle" style="background-color: #CAA4E2; top: 330px;"></button>
+		<button onclick = "changeColor('#E2A4D5')" class = "circle" style="background-color: #E2A4D5; top: 380px;"></button>
+		<button onclick = "changeColor('#E1E1E1')" class = "circle" style="background-color: #E1E1E1; top: 430px;"></button>
+		<button onclick = "changeColor('#434343')" class = "circle" style="background-color: #434343; top: 480px;"></button>
+
+<div class="slideshow-container">
+	<div id="slideshow-example" data-component="slideshow">
+		<div role="list">
+			<div class="slide">
+				<img src="banana.jpg" style="height:300px">
+			</div>
+			<div class="slide">
+				<img src="banana1.jpg" style="height:300px">
+			</div>
+			<div class="slide">
+				<img src="banana2.jpg" style="height:300px">
+			</div>
+			<div class="slide">
+				<img src="banana3.jpg" style="height:300px">
+			</div>
+			<div class="slide">
+				<img src="banana4.jpg" style="height:300px">
+			</div>
+			<div class="slide">
+				<img src="banana5.jpg" style="height:300px">
+			</div>
+			<div class="slide">
+				<img src="banana6.jpg" style="height:300px">
+			</div>
+			<div class="slide">
+				<img src="banana7.jpg" style="height:300px">
+			</div>
+		</div>
+	</div>
+
+	
+
+		<script>
+			
+			function changeColor(color) {
+				document.body.style.background = color;
+				if(color === '#434343'){
+					document.body.style.color = '#E1E1E1';
+				}
+				else{
+					document.body.style.color = '#434343';
+				}
+			}
+			
+			var slideshows = document.querySelectorAll('[data-component="slideshow"]');
+			slideshows.forEach(initSlideShow);
+
+			function initSlideShow(slideshow) {
+				var slides = document.querySelectorAll(`#${slideshow.id} [role="list"] .slide`);
+				
+				var index = 0, time = 2000;
+				slides[index].classList.add('active');
+
+				setInterval( () => {
+					slides[index].classList.remove('active');
+			
+					index++;
+					if (index === slides.length) 
+						index = 0;
+					slides[index].classList.add('active');
+				}, time);
+			}
+		</script>
+    </body>
+</html>

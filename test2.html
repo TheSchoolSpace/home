@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<style>
+	
+	</style>
+	
+    <head>
+        <title>The School Space</title>
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    </head>
+	
+    <body style="background-color: #E1E1E1; color: #434343">
+        <h1 class = "introTitle"><br><br>Welcome to The School Space!</h1>
+		<p class = "subtitle">While you wait for development, enjoy these bananas!</p>
+		
+		<div class = "rectangle"></div>
+		
+		<div class = "inProgress">In Progress (Click to view)	:</div>
+	<!-- Color buttons:                                                           -->	
+		<button onclick = "changeColor('#D66A63')" class = "circle" style="background-color: #D66A63; top: 80px;"></button>
+		<button onclick = "changeColor('#E88C78')" class = "circle" style="background-color: #E88C78; top: 130px;"></button>
+		<button onclick = "changeColor('#EDD77E')" class = "circle" style="background-color: #EDD77E; top: 180px;"></button>
+		<button onclick = "changeColor('#BDD7BC')" class = "circle" style="background-color: #BDD7BC; top: 230px;"></button>
+		<button onclick = "changeColor('#90BEF2')" class = "circle" style="background-color: #90BEF2; top: 280px;"></button>
+		<button onclick = "changeColor('#CAA4E2')" class = "circle" style="background-color: #CAA4E2; top: 330px;"></button>
+		<button onclick = "changeColor('#E2A4D5')" class = "circle" style="background-color: #E2A4D5; top: 380px;"></button>
+		<button onclick = "changeColor('#E1E1E1')" class = "circle" style="background-color: #E1E1E1; top: 430px;"></button>
+		<button onclick = "changeColor('#434343')" class = "circle" style="background-color: #434343; top: 480px;"></button>
+
+<div class="slideshow-container">
+	<div id="slideshow-example" data-component="slideshow">
+		<div role="list">
+			<div class="slide">
+				<img src="banana.jpg" style="height:300px">
+			</div>
+			<div class="slide">
+				<img src="banana1.jpg" style="height:300px">
+			</div>
+			<div class="slide">
+				<img src="banana2.jpg" style="height:300px">
+			</div>
+			<div class="slide">
+				<img src="banana3.jpg" style="height:300px">
+			</div>
+			<div class="slide">
+				<img src="banana4.jpg" style="height:300px">
+			</div>
+			<div class="slide">
+				<img src="banana5.jpg" style="height:300px">
+			</div>
+			<div class="slide">
+				<img src="banana6.jpg" style="height:300px">
+			</div>
+			<div class="slide">
+				<img src="banana7.jpg" style="height:300px">
+			</div>
+		</div>
+	</div>
+
+	<button class="button" onclick=" window.open('html/google')"> Google</button>
+
+		<script>
+			
+			function changeColor(color) {
+				document.body.style.background = color;
+				if(color === '#434343'){
+					document.body.style.color = '#E1E1E1';
+				}
+				else{
+					document.body.style.color = '#434343';
+				}
+			}
+			
+			var slideshows = document.querySelectorAll('[data-component="slideshow"]');
+			slideshows.forEach(initSlideShow);
+
+			function initSlideShow(slideshow) {
+				var slides = document.querySelectorAll(`#${slideshow.id} [role="list"] .slide`);
+				
+				var index = 0, time = 2000;
+				slides[index].classList.add('active');
+
+				setInterval( () => {
+					slides[index].classList.remove('active');
+			
+					index++;
+					if (index === slides.length) 
+						index = 0;
+					slides[index].classList.add('active');
+				}, time);
+			}
+		</script>
+    </body>
+</html>
